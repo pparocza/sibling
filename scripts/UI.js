@@ -1,6 +1,4 @@
-let IS;
-export { IS }
-import { InfiniteSibling } from "../node_modules/infinitesibling";
+import { IS } from "./InfiniteSibling.js";
 import * as main from "../script.js";
 
 const START_BUTTON = document.querySelector('.START_BUTTON');
@@ -67,7 +65,6 @@ function loadOnline()
 {
 	START_BUTTON.disabled = true;
 	START_BUTTON.innerHTML = LOADING_STRING;
-	IS = new InfiniteSibling();
 	main.load();
 }
 
@@ -75,7 +72,6 @@ function loadOffline()
 {
 	START_BUTTON.disabled = true;
 	START_BUTTON.innerHTML = LOADING_STRING;
-	IS = new InfiniteSibling();
 	main.load();
 }
 

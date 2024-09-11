@@ -1,4 +1,4 @@
-import { IS } from "./scripts/UI.js"
+import { IS } from "./scripts/InfiniteSibling.js"
 let osc;
 
 export function load()
