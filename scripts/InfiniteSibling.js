@@ -1,5 +1,3 @@
-/*
-import { InfiniteSibling } from "../node_modules/infinitesibling";
- */
+import { InfiniteSibling } from "infinitesibling";
 
-export const IS = null; // new InfiniteSibling();
+export const IS = new InfiniteSibling();
