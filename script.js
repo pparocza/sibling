@@ -1,25 +1,15 @@
 import { IS } from "./scripts/InfiniteSibling.js"
-let osc;
 
-export function load()
+function load()
 {
-    osc = IS.osc("sawtooth", 80);
-    const filter = IS.biquadFilter("lowpass");
-
-    osc.connect(filter.filter);
-    filter.connect(IS.output);
-
-    /*
-        IS.createChannel("channelName") --> IS.connectToChannel("channelName", audioNode) / IS.connectToChannel("channelName", [audioNodes])
-     */
 }
 
-export function start()
+function start()
 {
-    osc.start();
 }
 
-export function stop()
+function stop()
 {
-    osc.stop();
 }
+
+export { load, start, stop };

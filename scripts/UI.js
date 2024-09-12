@@ -1,4 +1,4 @@
-import { IS } from "./InfiniteSibling.js";
+// import { IS } from "./InfiniteSibling.js";
 import * as main from "../script.js";
 
 const START_BUTTON = document.querySelector('.START_BUTTON');
@@ -95,7 +95,7 @@ function handleStart()
 function startOnline()
 {
 	setStartButton(STOP_STRING, false);
-	IS.start();
+	// IS.start();
 	main.start();
 }
 
@@ -112,7 +112,7 @@ function handleReset()
 function handleStop()
 {
 	main.stop();
-	IS.stop();
+	// IS.stop();
 }
 
 function setStartButton(label, disabled)
