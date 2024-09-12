@@ -1,4 +1,4 @@
-import { IS } from "./scripts/InfiniteSibling.js"
+// import { IS } from "./scripts/InfiniteSibling.js"
 
 function load()
 {
