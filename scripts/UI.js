@@ -62,15 +62,13 @@ function handleLoad()
 
 function loadOnline()
 {
-	START_BUTTON.disabled = true;
-	START_BUTTON.innerHTML = LOADING_STRING;
+	setStartButton(LOADING_STRING, true);
 	main.load();
 }
 
 function loadOffline()
 {
-	START_BUTTON.disabled = true;
-	START_BUTTON.innerHTML = LOADING_STRING;
+	setStartButton(LOADING_STRING, true);
 	main.load();
 }
 
