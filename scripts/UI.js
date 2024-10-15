@@ -1,4 +1,3 @@
-import { IS } from "./InfiniteSibling.js";
 import * as main from "../script.js";
 
 const START_BUTTON = document.querySelector('.START_BUTTON');
@@ -63,15 +62,13 @@ function handleLoad()
 
 function loadOnline()
 {
-	START_BUTTON.disabled = true;
-	START_BUTTON.innerHTML = LOADING_STRING;
+	setStartButton(LOADING_STRING, true);
 	main.load();
 }
 
 function loadOffline()
 {
-	START_BUTTON.disabled = true;
-	START_BUTTON.innerHTML = LOADING_STRING;
+	setStartButton(LOADING_STRING, true);
 	main.load();
 }
 
@@ -95,7 +92,6 @@ function handleStart()
 function startOnline()
 {
 	setStartButton(STOP_STRING, false);
-	IS.start();
 	main.start();
 }
 
@@ -112,7 +108,7 @@ function handleReset()
 function handleStop()
 {
 	main.stop();
-	IS.stop();
+	setStartButton(RESET_STRING, false);
 }
 
 function setStartButton(label, disabled)
