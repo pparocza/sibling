@@ -1,1 +1,1 @@
-https://pparocza.github.io/siblings/
+https://pparocza.github.io/sibling/
