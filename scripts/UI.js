@@ -12,8 +12,8 @@ const ONLINE_BUTTON = document.querySelector('.ONLINE_BUTTON');
 const ONLINE_STRING = "online";
 const OFFLINE_STRING = "offline";
 
-const GAIN_SLIDER = document.querySelector('.GAIN_SLIDER');
-const GAIN_DISPLAY = document.querySelector('.GAIN_VALUE_DISPLAY');
+const VOLUME_SLIDER = document.querySelector('.VOLUME_SLIDER');
+const VOLUME_DISPLAY = document.querySelector('.VOLUME_DISPLAY');
 
 const PIECE_SELECTION_DROPDOWN = document.querySelector('.SIBLING_SELECTION_MENU');
 const SIBLING_SCRIPT = document.querySelector('.SIBLING_SCRIPT');
@@ -133,7 +133,14 @@ function setStartButtonReady()
 	setStartButton(START_STRING, false);
 }
 
-GAIN_SLIDER.oninput = function()
+VOLUME_SLIDER.value = 0.7;
+VOLUME_DISPLAY.innerHTML = "-6 dB";
+
+VOLUME_SLIDER.oninput = function()
 {
-	GAIN_DISPLAY.innerHTML = parseInt(volume * 100) + "%";
+	let sliderValue = VOLUME_SLIDER.value;
+	let amplitudeScaler = Math.pow(sliderValue, 2);
+	let amplitudeToDecibels = IS.amplitudeToDecibels(amplitudeScaler);
+	IS.outputVolume = amplitudeToDecibels;
+	VOLUME_DISPLAY.innerHTML = parseInt(amplitudeToDecibels) + " dB";
 }
