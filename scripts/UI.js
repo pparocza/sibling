@@ -1,4 +1,5 @@
 import * as main from "../script.js";
+import { IS } from "../script.js";
 
 const START_BUTTON = document.querySelector('.START_BUTTON');
 const START_STRING = "start";
@@ -12,8 +13,16 @@ const ONLINE_STRING = "online";
 const OFFLINE_STRING = "offline";
 
 const GAIN_SLIDER = document.querySelector('.GAIN_SLIDER');
-
 const GAIN_DISPLAY = document.querySelector('.GAIN_VALUE_DISPLAY');
+
+const PIECE_SELECTION_DROPDOWN = document.querySelector('.SIBLING_SELECTION_MENU');
+const SIBLING_SCRIPT = document.querySelector('.SIBLING_SCRIPT');
+const SIBLING_PATH = './scripts/siblings/'
+
+PIECE_SELECTION_DROPDOWN.oninput = function ()
+{
+	SIBLING_SCRIPT.src = SIBLING_PATH + PIECE_SELECTION_DROPDOWN.value + "/script.js";
+}
 
 ONLINE_BUTTON.onclick = function()
 {
@@ -56,20 +65,22 @@ function handleLoad()
 		default:
 			break;
 	}
-
-	setStartButton(START_STRING, false);
 }
 
 function loadOnline()
 {
+	PIECE_SELECTION_DROPDOWN.disabled = true;
 	setStartButton(LOADING_STRING, true);
-	main.load();
+	IS.onReady(setStartButtonReady);
+	setTimeout(() => { main.load() }, 500);
 }
 
 function loadOffline()
 {
+	PIECE_SELECTION_DROPDOWN.disabled = true;
 	setStartButton(LOADING_STRING, true);
-	main.load();
+	IS.onReady(setStartButtonReady);
+	setTimeout(() => { main.load() }, 500);
 }
 
 function handleStart()
@@ -117,6 +128,10 @@ function setStartButton(label, disabled)
 	START_BUTTON.disabled = disabled;
 }
 
+function setStartButtonReady()
+{
+	setStartButton(START_STRING, false);
+}
 
 GAIN_SLIDER.oninput = function()
 {
